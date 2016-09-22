@@ -1,0 +1,106 @@
+﻿<Window x:Class="ERPTest3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERPTest3"
+        xmlns:mat="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="MainWindow" Height="800" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            
+        
+        <ScrollViewer MaxWidth="1800" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" >
+            <StackPanel Orientation="Horizontal">
+                
+           
+        <mat:Card HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Height="600" Padding="50" Margin="30">
+                        <Grid>
+                            
+                        
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Label Content="Initialisation" Margin="5" FontSize="25"/>
+                <Button Margin="5" Command="{Binding OpenNCommand}" Content="Open Nomenclature"/>
+                <Button Margin="5" Command="{Binding OpenSCommand}" Content="Open Stock Table"/>
+                <Button Margin="5" Command="{Binding OpenPCommand}" Content="Open Prev Table"/>
+                
+                
+                   
+                
+               
+                    </StackPanel>
+                            <Button Margin="10" Command="{Binding ProcessCommand}" HorizontalAlignment="Center" Content="Calculer" IsEnabled="{Binding IsComputePossible}" VerticalAlignment="Bottom"/>
+                        </Grid>
+                    </mat:Card>
+                <mat:Card HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Height="600" Padding="50" Margin="30">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Nomenclature" FontSize="25"/>
+                        <ScrollViewer MaxHeight="500" VerticalScrollBarVisibility="Auto">
+                            <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding LstArticle}"/>
+                        </ScrollViewer>
+                    </StackPanel>
+                    
+                    
+                </mat:Card >
+                <mat:Card HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Height="600" Padding="50" Margin="30">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Prevision" FontSize="25"/>
+                        <ScrollViewer MaxHeight="500" VerticalScrollBarVisibility="Auto">
+                            <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding LstPrevision}"/>
+                        </ScrollViewer>
+                    </StackPanel>
+
+
+                </mat:Card >
+                <mat:Card HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Height="600" Padding="50" Margin="30">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Stock" FontSize="25"/>
+                        <ScrollViewer MaxHeight="500" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                            <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding LstStock}"/>
+                        </ScrollViewer>
+                    </StackPanel>
+
+
+                </mat:Card >
+            </StackPanel>
+        </ScrollViewer>
+            <mat:Card  MaxWidth="1800" Height="400" Padding="20" Margin="20">
+                <ListView ItemsSource="{Binding LstResult}" Background="Transparent" BorderThickness="0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" MaxWidth="1800" VerticalAlignment="Center" Background="Transparent" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <mat:Card Height="200" Width="100" Margin="5">
+      
+                            <Grid  Background="#FFEFEFEF">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition />
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                    <Label Content="{Binding Semaine}" Grid.ColumnSpan="2" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                    <Label Content="{Binding BB}" Grid.Row="1" />
+                                <Label Content="{Binding BN}" Grid.Column="1" Grid.Row="1"/>
+                                <Label Content="{Binding OL}" Grid.Row="2"/>
+                                <Label Content="{Binding Sugg}" Grid.Row="2" Grid.Column="1"/>
+                                <Label Content="{Binding S}" Grid.Row="3" Grid.Column="1"/>
+                                <Label Content="{Binding L}" Grid.Row="3"/>
+                            </Grid>
+                            </mat:Card>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </mat:Card>
+        </StackPanel>
+    </Grid>
+</Window>

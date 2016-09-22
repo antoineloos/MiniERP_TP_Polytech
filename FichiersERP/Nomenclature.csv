@@ -1,0 +1,9 @@
+Compos;Composant;Coefficient;Unit
+X;SE1;2;unit
+X;C1;1;unit
+X;C2;1;unit
+Y;C3;1;unit
+Y;C1;3;unit
+Y;SE1;1;unit
+SE1;C1;2;unit
+SE1;C2;1;unit

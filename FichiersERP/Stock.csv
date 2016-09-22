@@ -1,0 +1,5 @@
+CodeArticle;TypeGestion;LotdeLancement;StockDispo;StockSecu;Unite;Delai;ArrivePrevS1;ArrivePrevS2
+X;=;0;50;10;Unite;1;0;0
+Y;>=;70;85;15;Unite;1;0;0
+C1;X;700;550;0;Unite;2;700;700
+SE1;X;250;230;20;Unite;1;0;0
